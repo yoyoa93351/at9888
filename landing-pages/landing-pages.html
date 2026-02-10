@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>極致娛樂 - 贏在起跑線</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: "Microsoft JhengHei", sans-serif;
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 頁首 Header */
+        header {
+            padding: 20px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 2px solid #d4af37;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            color: #d4af37;
+        }
+
+        /* 主視覺內容區 */
+        .hero {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            /* 背景圖：你可以更換下方的 URL */
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1518623489648-a173ef7824f3?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #eee;
+        }
+
+        /* 按鈕 Button */
+        .cta-button {
+            background: linear-gradient(45deg, #d4af37, #f9df7b);
+            color: #000;
+            padding: 15px 40px;
+            font-size: 1.25rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>GOLDEN ROYAL 👑 皇家娛樂</h1>
+    </header>
+
+    <main class="hero">
+        <h2>一秒入帳，千倍勝率</h2>
+        <p>全台最穩發財金，新註冊即送 888！</p>
+        
+        <a href="#" class="cta-button">立即開戰</a>
+    </main>
+
+</body>
+</html>
