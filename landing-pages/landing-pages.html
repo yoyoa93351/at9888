@@ -3,94 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>極致娛樂 - 贏在起跑線</title>
+    <title>AT99 娛樂城 - 巔峰之作</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body, html {
-            margin: 0;
-            padding: 0;
             height: 100%;
-            font-family: "Microsoft JhengHei", sans-serif;
             background-color: #000;
-            color: #fff;
-            display: flex;
-            flex-direction: column;
         }
 
-        /* 頁首 Header */
-        header {
-            padding: 20px;
-            text-align: center;
-            background: rgba(0, 0, 0, 0.8);
-            border-bottom: 2px solid #d4af37;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 1.5rem;
-            letter-spacing: 2px;
-            color: #d4af37;
-        }
-
-        /* 主視覺內容區 */
-        .hero {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 20px;
-            /* 背景圖：你可以更換下方的 URL */
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                        url('https://images.unsplash.com/photo-1518623489648-a173ef7824f3?q=80&w=2000&auto=format&fit=crop');
+        /* 滿版背景圖設置 */
+        .hero-section {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), 
+                        url('https://images.unsplash.com/photo-1596838132731-dd960a52445b?q=80&w=2000&auto=format&fit=crop'); 
             background-size: cover;
             background-position: center;
+            display: flex;
+            flex-direction: column;
         }
 
-        .hero h2 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            color: #eee;
-        }
-
-        /* 按鈕 Button */
-        .cta-button {
-            background: linear-gradient(45deg, #d4af37, #f9df7b);
+        /* 黃金漸層按鈕自定義 */
+        .btn-gold {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            border: none;
             color: #000;
+            font-weight: 800;
             padding: 15px 40px;
-            font-size: 1.25rem;
-            font-weight: bold;
-            text-decoration: none;
+            font-size: 1.5rem;
+            transition: 0.3s;
             border-radius: 50px;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
-            transition: transform 0.2s, box-shadow 0.2s;
         }
 
-        .cta-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.4);
+            color: #000;
         }
 
+        .brand-logo {
+            letter-spacing: 4px;
+            font-weight: 900;
+            color: #FFD700 !important;
+        }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>GOLDEN ROYAL 👑 皇家娛樂</h1>
+    <nav class="navbar navbar-dark bg-dark border-bottom border-warning">
+        <div class="container justify-content-center">
+            <a class="navbar-brand brand-logo" href="#">AT99 ENTERTAINMENT</a>
+        </div>
+    </nav>
+
+    <header class="hero-section text-white text-center justify-content-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <h1 class="display-3 fw-bold mb-3">AT99：強勢回歸</h1>
+                    <p class="lead mb-5 fs-3">極速出金 ‧ 業界最高返水 ‧ 挑戰感官極限</p>
+                    
+                    <a href="#" class="btn btn-gold btn-lg shadow-lg">立即領取試玩金</a>
+                </div>
+            </div>
+        </div>
     </header>
 
-    <main class="hero">
-        <h2>一秒入帳，千倍勝率</h2>
-        <p>全台最穩發財金，新註冊即送 888！</p>
-        
-        <a href="#" class="cta-button">立即開戰</a>
-    </main>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
