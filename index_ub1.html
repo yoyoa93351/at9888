@@ -498,7 +498,7 @@
 
 <body>
 
-    <header class="at-header js-all-link" data-ga-label="Header_Registration">
+    <header class="at-header js-all-link">
         <div class="app-info-left">
             <div class="app-icon-wrapper">
                 <img id="js-logo" src="" alt="LOGO" class="header-logo">
@@ -513,7 +513,7 @@
 
     <main>
         <!-- D: 標題裝飾 -->
-        <div class="header-banner js-all-link" data-ga-label="Hero_Section">
+        <div class="header-banner">
             <h1 class="main-title">註冊AT99享168</h1>
             <p class="sub-title" id="js-desc"></p>
 
@@ -533,7 +533,7 @@
         <section class="event-section" style="margin-top: -60px; z-index: 10;">
             <h2 class="section-title"><span>🔥</span> 限時活動</h2>
             <div class="scroll-wrapper">
-                <div class="horizontal-scroll js-all-link" id="attime-container" data-ga-label="Events_Limited"></div>
+                <div class="horizontal-scroll js-all-link" id="attime-container"></div>
                 <button class="scroll-arrow" onclick="scrollGallery('attime-container', event)">❯</button>
             </div>
         </section>
@@ -541,13 +541,13 @@
         <section class="event-section">
             <h2 class="section-title"><span>🌟</span> 常駐活動</h2>
             <div class="scroll-wrapper">
-                <div class="horizontal-scroll js-all-link" id="always-container" data-ga-label="Events_Always"></div>
+                <div class="horizontal-scroll js-all-link" id="always-container"></div>
                 <button class="scroll-arrow" onclick="scrollGallery('always-container', event)">❯</button>
             </div>
         </section>
 
         <!-- C: 信任徽章 -->
-        <div class="trust-badge-container js-all-link" data-ga-label="Trust_Section">
+        <div class="trust-badge-container">
             <div class="trust-badge-title">🛡️ 業界最高規格 安全有保障</div>
             <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 10px;">
                 <span class="trust-badge-item">💳 支援 USDT 儲值</span>
@@ -558,7 +558,7 @@
         </div>
     </main>
 
-    <div class="cta-wrapper js-all-link" data-ga-label="CTA_Sticky_Bottom">
+    <div class="cta-wrapper js-all-link">
         <div class="cta-guide-text">👇 點此前往 AT99 註冊享體驗金 👇</div>
         <div class="action-btn"
             style="position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;">
@@ -656,29 +656,31 @@
         document.querySelectorAll('.js-all-link').forEach(element => {
             element.addEventListener('click', function (e) {
                 e.preventDefault();
-                const label = this.getAttribute('data-ga-label') || 'General_Click';
 
-                // GA Event
-                if (typeof gtag === 'function') {
-                    gtag('event', 'click', {
-                        'event_category': 'Landing_Page',
-                        'event_label': label,
-                        'transport_type': 'beacon'
-                    });
-                }
-
-                // FB Pixel
+                // --- FB Pixel (Meta Pixel) ---
                 if (typeof fbq === 'function') {
-                    fbq('track', CONFIG.pixelEventName, {
-                        content_category: 'Landing_Page',
-                        content_name: label
+                    fbq('track', CONFIG.pixelEventName);
+                }
+
+                // --- GA Events Categorization ---
+                if (typeof gtag === 'function') {
+                    let gaEventName = 'click_conversion';
+                    if (element.classList.contains('at-header')) {
+                        gaEventName = 'click_top_header';
+                    } else if (element.id === 'attime-container') {
+                        gaEventName = 'click_limited_event';
+                    } else if (element.id === 'always-container') {
+                        gaEventName = 'click_always_event';
+                    } else if (element.classList.contains('cta-wrapper')) {
+                        gaEventName = 'click_bottom_cta';
+                    }
+                    gtag('event', gaEventName, {
+                        'event_category': 'LandingPage',
+                        'event_label': document.title
                     });
                 }
 
-                // 延遲跳轉確保追蹤代碼發送成功
-                setTimeout(() => {
-                    window.location.href = CONFIG.targetUrl;
-                }, 150);
+                window.location.href = CONFIG.targetUrl;
             });
         });
 
